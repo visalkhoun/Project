@@ -3,94 +3,127 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
-}
+  }
 
 body {
-  background: #f0f2f5;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+background: #f0f2f5;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
 }
 
+/* MAIN CONTAINER */
 .container {
-  display: flex;
-  width: 900px;
-  justify-content: space-between;
-  align-items: center;
+display: flex;
+width: 900px;
+justify-content: space-between;
+align-items: center;
 }
 
+/* LEFT SIDE */
 .left {
-  width: 50%;
+width: 50%;
 }
 
 .left h1 {
-  color: #1877f2;
-  font-size: 50px;
-  margin-bottom: 10px;
+color: #1877f2;
+font-size: 50px;
+margin-bottom: 10px;
 }
 
 .left p {
-  font-size: 20px;
-  color: #333;
+font-size: 20px;
+color: #333;
 }
 
+/* RIGHT SIDE */
 .right {
-  width: 40%;
+width: 40%;
+display: flex;
+justify-content: center;
 }
 
+/* LOGIN BOX */
 .login-box {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
+background: white;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+display: flex;
+flex-direction: column;
+width: 100%;
+max-width: 350px;
 }
 
 .login-box input {
-  margin: 8px 0;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+margin: 8px 0;
+padding: 12px;
+border: 1px solid #ddd;
+border-radius: 6px;
 }
 
+/* BUTTONS */
 .login-btn {
-  background: #1877f2;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  margin-top: 10px;
-  cursor: pointer;
-  font-size: 16px;
+background: #1877f2;
+color: white;
+padding: 12px;
+border: none;
+border-radius: 6px;
+margin-top: 10px;
+cursor: pointer;
+font-size: 16px;
 }
 
 .login-btn:hover {
-  background: #166fe5;
+background: #166fe5;
 }
 
 .forgot {
-  text-align: center;
-  margin: 10px 0;
-  font-size: 14px;
-  color: #1877f2;
-  text-decoration: none;
+text-align: center;
+margin: 10px 0;
+font-size: 14px;
+color: #1877f2;
+text-decoration: none;
 }
 
 hr {
-  margin: 10px 0;
+margin: 10px 0;
 }
 
 .create-btn {
-  background: #42b72a;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+background: #42b72a;
+color: white;
+padding: 12px;
+border: none;
+border-radius: 6px;
+cursor: pointer;
 }
 
 .create-btn:hover {
-  background: #36a420;
+background: #36a420;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+
+body {
+height: auto;
+}
+
+.container {
+flex-direction: column;
+width: 100%;
+text-align: center;
+}
+
+.left {
+width: 100%;
+margin-bottom: 20px;
+}
+
+.right {
+width: 100%;
+}
 }
