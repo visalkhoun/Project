@@ -1,6 +1,4 @@
-const result = require("dotenv").config();
-console.log(result);
-console.log("MONGO_URI:", process.env.MONGO_URI);
+require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -16,16 +14,19 @@ app.use(express.json());
 const userRoutes = require("./routes/userRoutes");
 app.use("/api/users", userRoutes);
 
-console.log("MONGO_URI:", process.env.MONGO_URI);
-
-// database (USE ENV VARIABLE)
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB connected"))
-  .catch(err => console.log(err));
-
-// port fix for Railway
+// env variables
 const PORT = process.env.PORT || 5000;
+const MONGO_URI = process.env.MONGO_URI;
 
+// debug (optional)
+console.log("MONGO_URI:", MONGO_URI);
+
+// database connection
+mongoose.connect(MONGO_URI)
+  .then(() => console.log("MongoDB connected"))
+  .catch(err => console.log("MongoDB error:", err));
+
+// start server
 app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Server running on ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
