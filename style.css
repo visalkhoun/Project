@@ -14,59 +14,59 @@ body {
   padding: 20px;
 }
 
-/* MAIN CONTAINER */
+/* MAIN LAYOUT */
 .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
   max-width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 40px;
-  flex-wrap: wrap; /* IMPORTANT */
 }
 
 /* LEFT SIDE */
 .left {
   flex: 1;
-  min-width: 280px;
 }
 
 .left h1 {
   color: #1877f2;
-  font-size: clamp(32px, 5vw, 50px);
-  margin-bottom: 10px;
+  font-size: clamp(36px, 5vw, 56px);
 }
 
 .left p {
   font-size: clamp(16px, 2vw, 20px);
+  margin-top: 10px;
   color: #333;
 }
 
 /* RIGHT SIDE */
 .right {
   flex: 1;
-  min-width: 280px;
   display: flex;
   justify-content: center;
 }
 
 /* LOGIN BOX */
 .login-box {
+  width: 100%;
+  max-width: 360px;
   background: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 350px;
 }
 
+/* INPUTS */
 .login-box input {
   margin: 8px 0;
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 6px;
+  font-size: 14px;
 }
 
 /* BUTTONS */
@@ -83,6 +83,14 @@ body {
 
 .login-btn:hover {
   background: #166fe5;
+}
+
+.forgot {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 14px;
+  color: #1877f2;
+  text-decoration: none;
 }
 
 hr {
@@ -102,7 +110,7 @@ hr {
   background: #36a420;
 }
 
-/* RESPONSIVE (mobile fix) */
+/* 📱 TABLET + MOBILE */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
@@ -115,5 +123,16 @@ hr {
 
   .left {
     text-align: center;
+  }
+}
+
+/* 📱 SMALL MOBILE */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .login-box {
+    padding: 15px;
   }
 }
