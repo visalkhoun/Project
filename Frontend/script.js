@@ -5,7 +5,7 @@ btn.addEventListener("click", async () => {
   const password = document.getElementById("password").value;
 
   try {
-    const res = await fetch("https://your-project.vercel.app/api/users/save", {
+    const res = await fetch("/api/users/save", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -16,7 +16,9 @@ btn.addEventListener("click", async () => {
     const data = await res.json();
     console.log(data);
     alert("Data saved to database");
+
   } catch (err) {
     console.error(err);
+    alert("Error saving data");
   }
 });
