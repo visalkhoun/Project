@@ -1,21 +1,34 @@
-import mongoose from "mongoose";
-import User from "../../Backend/models/User.js";
+const express = require("express");
+const router = express.Router();
+const User = require("../models/User");
 
-export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method not allowed" });
-  }
+// Test route (so you know the route is working)
+router.get("/", (req, res) => {
+  res.send("User route is working");
+});
 
+// Save ANY data
+router.post("/save", async (req, res) => {
   try {
-    if (!mongoose.connections[0].readyState) {
-      await mongoose.connect(process.env.MONGO_URI);
-    }
+    // Debug: log incoming data (remove later in production)
+    console.log("Incoming data:", req.body);
 
     const user = new User(req.body);
-    await user.save();
+    const savedUser = await user.save();
 
-    res.status(200).json({ message: "Data saved successfully" });
+    res.status(201).json({
+      message: "Data saved successfully",
+      data: savedUser,
+    });
+
   } catch (err) {
-    res.status(500).json({ message: "Error saving data" });
+    console.error("Error saving data:", err);
+
+    res.status(500).json({
+      message: "Error saving data",
+      error: err.message,
+    });
   }
-}
+});
+
+module.exports = router;
