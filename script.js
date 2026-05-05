@@ -1,6 +1,8 @@
-const btn = document.querySelector(".login-btn");
+const form = document.getElementById("loginForm");
 
-btn.addEventListener("click", async () => {
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
@@ -15,10 +17,11 @@ btn.addEventListener("click", async () => {
 
     const data = await res.json();
     console.log(data);
-    alert("Data saved to database");
+
+    alert("Login data sent to server!");
 
   } catch (err) {
     console.error(err);
-    alert("Error saving data");
+    alert("Error connecting to server");
   }
 });
